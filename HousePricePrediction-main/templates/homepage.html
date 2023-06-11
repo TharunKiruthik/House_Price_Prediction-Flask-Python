@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		/* CSS code */
+		html {
+			height: 100%;
+		}
+
+		body {
+			height: 100%;
+			background-color: #8e74c1;
+			font: 400 10px "Lato", sans-serif;
+			text-align: center;
+		}
+
+		.header {
+			text-align: center;
+			position: sticky;
+			top: 0; /* Make the header stick to the top */
+			width: 100%;
+			height: 75px;
+			background: #17141d;
+			opacity: 0.95;
+			overflow: hidden;
+			box-shadow: #333 1px 3px 4px;
+		}
+
+		svg.line-top {
+			width: 100%;
+			background-color: #17141d;
+		}
+
+		svg.line-bottom {
+			width: 100%;
+		}
+
+		.menu {
+			width: 750px;
+			margin: 0 auto;
+		}
+
+		ul {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			justify-content: space-between;
+			list-style: none;
+		}
+
+
+		ul li {
+			width: 25%;
+			height: 10px;
+			text-align: center;
+			text-transform: uppercase;
+			text-decoration: none;
+			color: rgb(238, 228, 228);
+			cursor: pointer;
+			display: inline-block;
+			letter-spacing: 3.5px;
+			transition: all 0.5s ease-out;
+			font-size: 16px; /* Increased font size */
+			position: relative; /* Add position relative */
+		}
+		ul li:before {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Adjust the position of the line */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent; /* Set the background color to transparent */
+}
+
+ul li.active:before {
+  background-color: transparent; /* Set the background color to transparent for the active li */
+}
+
+		li.active {
+			color: orange;
+			transform: scale(1.1);
+			text-decoration: none; /* Remove the blue line */
+		}
+		li.active a {
+                text-decoration: none;
+        }
+        li a {
+                text-decoration: none;
+                color: #fff;
+        }
+
+		polygon {
+			stroke-width: 4px;
+			stroke: rgb(56, 194, 21);
+			fill: rgb(170, 165, 155);
+		}
+
+		@media (max-width: 991px) {
+			.header {
+				height: 64px;
+			}
+
+			body {
+				font-size: 0.4em;
+			}
+
+			.content {
+				height: calc(100% - 64px);
+			}
+		}
+
+
+      @import url(https://fonts.googleapis.com/css?family=Montserrat);
+      html,
+      body {
+        overflow: hidden;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      .background {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			overflow: hidden;
+			will-change: transform;
+			backface-visibility: hidden;
+			height: 130vh;
+			position: fixed;
+			width: 100%;
+			transform: translateY(30vh);
+			transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
+		}
+
+      .background:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .3);
+      }
+
+      .background:first-child {
+        background-image: url(https://miro.medium.com/v2/resize:fit:720/format:webp/0*DLSc317Usr5g5USD.jpeg);
+        transform: translateY(-15vh);
+      }
+
+      .background:first-child .content-wrapper {
+        transform: translateY(15vh);
+      }
+
+      .background:nth-child(2) {
+        background-image: url(https://www.luxury-architecture.net/wp-content/uploads/2017/12/1514340302-1816-Shelter-Island.jpg);
+      }
+
+      .background:nth-child(3) {
+        background-image: url(https://www.greathousedesign.com/wp-content/uploads/2020/03/image-3-1.jpg);
+      }
+
+      /* Set stacking context of slides */
+      .background:nth-child(1) {
+        z-index: 3;
+      }
+
+      .background:nth-child(2) {
+        z-index: 2;
+      }
+
+      .background:nth-child(3) {
+        z-index: 1;
+      }
+
+      .content-wrapper {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-flow: column nowrap;
+        color: #fff;
+        font-family: Montserrat;
+        text-transform: uppercase;
+        transform: translateY(40vh);
+        will-change: transform;
+        backface-visibility: hidden;
+        transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+      }
+
+      .content-title {
+        font-size: 12vh;
+        line-height: 1.4;
+      }
+
+      .background.up-scroll {
+        transform: translate3d(0, -15vh, 0);
+      }
+
+      .background.up-scroll .content-wrapper {
+        transform: translateY(15vh);
+      }
+
+      .background.up-scroll + .background {
+        transform: translate3d(0, 30vh, 0);
+      }
+
+      .background.up-scroll + .background .content-wrapper {
+        transform: translateY(30vh);
+      }
+
+      .background.down-scroll {
+        transform: translate3d(0, -130vh, 0);
+      }
+
+      .background.down-scroll .content-wrapper {
+        transform: translateY(40vh);
+      }
+
+      .background.down-scroll + .background:not(.down-scroll) {
+        transform: translate3d(0, -15vh, 0);
+      }
+
+      .background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+        transform: translateY(15vh);
+      }
+      .content-title  {
+        font-size: 7vh;
+        font-weight: 300;
+        line-height: 1.6;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+
+      }
+
+      </style>
+</head>
+<body>
+	<div class="header">
+		<div class="menu">
+			<svg class="line-top" width="750" height="15" viewBox="0,0 1000,20">
+				<line
+					class="line-dash"
+					x1="0"
+					y1="15"
+					x2="1000"
+					y2="15"
+					style="stroke: orange; stroke-width:2; stroke-linecap:round; stroke-dasharray: 180,1200; stroke-dashoffset: -35;"
+				/>
+			</svg>
+
+            <ul>
+      <li><a href="/">HOME</span></a></li>
+      <li class="active"><a href="/home">PREDICT </span></a></li>
+
+      <li><a href="/contact">CONTACT US </span></a></li>
+      <li><a href="/login">LOGIN</span></a></li>
+
+    </ul>
+			<svg class="line-bottom" width="750" height="40" viewBox="0,0 1000,40">
+				<polygon class="lb" points="35,63 115,63 125,53 135,63 215,63" />
+				<polygon class="lb" points="285,63 365,63 375,53 385,63 465,63" />
+				<polygon class="lb" points="535,63 615,63 625,53 635,63 715,63" />
+					<polygon class="lb" points="785,63 865,63 875,53 885,63 965,63" />
+			</svg>
+		</div>
+	</div>
+  <div class="header1">
+    <div class="menu1">
+      <svg class="line-top" width="750" height="15" viewbox="0,0 1000,20">
+        <line
+          class="line-dash"
+          x1="0"
+          y1="15"
+          x2="1000"
+          y2="15"
+          style="stroke: orange; stroke-width:2; stroke-linecap:round; stroke-dasharray: 180,1200; stroke-dashoffset: -35;"
+        />
+      </svg>
+
+      <svg class="line-bottom" width="750" height="30" viewbox="0,0 1000,40">
+        <polygon class="lb" points="35,53 115,53 125,43 135,53 215,53" />
+        <polygon class="lb" points="285,53 365,53 375,43 385,53 465,53" />
+        <polygon class="lb" points="535,53 615,53 625,43 635,53 715,53" />
+        <polygon class="lb" points="785,53 865,53 875,43 885,53 965,53" />
+      </svg>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Navigation BAR </h1>
+  </div>
+
+  <div class="container">
+    <section class="background">
+      <div class="content-wrapper">
+        <p class="content-title">"Home is a place you grow up wanting to leave and grow old wanting to get back to."</p>
+        <p class="content-subtitle">Scroll down and up !</p>
+      </div>
+    </section>
+    <section class="background">
+      <div class="content-wrapper">
+        <p class="content-title">"The strength of a nation derives from the integrity of the home."</p>
+       <!--  <p class="content-subtitle">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras ut massa mattis nibh semper pretium.</p>-->
+      </div>
+    </section>
+    <section class="background">
+      <div class="content-wrapper">
+        <p class="content-title">"Home is where you can be yourself and find solace in the chaos of the world."</p>
+       <!--  <p class="content-subtitle">Nullam tristique urna sed tellus ornare congue. Etiam vitae erat at nibh aliquam dapibus.</p>-->
+      </div>
+    </section>
+  </div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+  <script>
+    // ------------- VARIABLES ------------- //
+var ticking = false;
+var isFirefox = (/Firefox/i.test(navigator.userAgent));
+var isIe = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(navigator.userAgent));
+var scrollSensitivitySetting = 40; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive)
+var slideDurationSetting = 800; //Amount of time for which slide is "locked"
+var currentSlideNumber = 0;
+var totalSlideNumber = document.querySelectorAll(".background").length;
+
+// ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
+function parallaxScroll(evt) {
+  if (isFirefox) {
+    //Set delta for Firefox
+    delta = evt.detail * (-120);
+  } else if (isIe) {
+    //Set delta for IE
+    delta = -evt.deltaY;
+  } else {
+    //Set delta for all other browsers
+    delta = evt.wheelDelta;
+  }
+
+  if (!ticking) {
+    if (delta <= -scrollSensitivitySetting) {
+      //Down scroll
+      ticking = true;
+      if (currentSlideNumber !== totalSlideNumber - 1) {
+        currentSlideNumber++;
+        nextItem();
+      }
+      slideDurationTimeout(slideDurationSetting);
+    }
+    if (delta >= scrollSensitivitySetting) {
+      //Up scroll
+      ticking = true;
+      if (currentSlideNumber !== 0) {
+        currentSlideNumber--;
+      }
+      previousItem();
+      slideDurationTimeout(slideDurationSetting);
+    }
+  }
+}
+
+// ------------- SET TIMEOUT TO TEMPORARILY "LOCK" SLIDES ------------- //
+function slideDurationTimeout(slideDuration) {
+  setTimeout(function() {
+    ticking = false;
+  }, slideDuration);
+}
+
+// ------------- ADD EVENT LISTENER ------------- //
+var mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
+window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
+
+// ------------- SLIDE MOTION ------------- //
+function nextItem() {
+  var previousSlide = document.querySelectorAll(".background")[currentSlideNumber - 1];
+  previousSlide.classList.remove("up-scroll");
+  previousSlide.classList.add("down-scroll");
+}
+
+function previousItem() {
+  var currentSlide = document.querySelectorAll(".background")[currentSlideNumber];
+  currentSlide.classList.remove("down-scroll");
+  currentSlide.classList.add("up-scroll");
+}
+
+  </script>
+	<script>
+		/* JavaScript code */
+		const lis = document.querySelectorAll("li");
+		const lbs = document.querySelectorAll(".lb");
+		const ul = document.querySelector("ul");
+		const lineDash = document.querySelector(".line-dash");
+
+		var dashOrigin = -35; //pixels
+		var selectedLi = -35; //pixels
+		var speed = 500; //move this many pixels in one second.
+		var distance = 0;
+		var time = 0;
+
+		// initial animation and class for HOME
+		gsap.to(lbs[0], 0.6, {
+			y: -43,
+			ease: Bounce.easeOut,
+			delay: 1
+		});
+
+		lis[0].classList.add("active");
+
+		//push all the bottom lines down.
+		function pushDownLb() {
+			for (let k = 0; k < lbs.length; ++k)
+				gsap.to(lbs[k], 0.5, {
+					y: 0,
+					ease: Power3.easeOut
+				});
+		}
+
+		ul.addEventListener(
+			"mouseleave",
+			function (e) {
+				// to avoid a bug in chrome that sometimes triggers mouseleave on click
+				// and the relatedTarget comes up null
+				if (e.relatedTarget) {
+					distance = Math.abs(dashOrigin - selectedLi);
+					time = distance / speed;
+					dashOrigin = selectedLi;
+					if (time) {
+						// overlaping tweens would give a zero time
+						gsap.to(lineDash, time, {
+							strokeDashoffset: selectedLi,
+							ease: Bounce.easeOut
+						});
+					} //if
+				} //if
+			},
+			false
+		);
+
+		for (let i = 0; i < 4; ++i) {
+			lis[i].addEventListener("mouseover", function () {
+				distance = Math.abs(-250 * i - 35 - dashOrigin);
+				time = distance / speed;
+				dashOrigin = -250 * i - 35;
+				if (time) {
+					gsap.to(lineDash, time, {
+						strokeDashoffset: -250 * i - 35,
+						ease: Bounce.easeOut
+					});
+				} //if
+			});
+
+			lis[i].addEventListener("click", function () {
+				selectedLi = -250 * i - 35;
+				pushDownLb();
+				let current = document.getElementsByClassName("active");
+				current[0].classList.remove("active");
+				lis[i].classList.add("active");
+				gsap.to(lbs[i], 0.5, {
+					y: -43,
+					ease: Bounce.easeOut
+				});
+			});
+		}
+	</script>
+</body>
+</html>
